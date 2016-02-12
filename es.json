@@ -1,0 +1,7 @@
+{
+	"settings": {
+		"host": 	"localhost",
+		"port": 	9200,
+		"debug": 	false
+	}
+}
