@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import os
 import sys
 import datetime
 import shutil
@@ -21,8 +22,9 @@ def get_backup_directory(base_directory):
 	return base_directory.format(date)
 	
 def compress_backup(backup_directory):
+	os.chdir(os.path.dirname(backup_directory))
 	tar = tarfile.open("%s.tar.gz" % backup_directory, "w:gz")
-	tar.add(backup_directory)
+	tar.add(os.path.basename(backup_directory))
 	tar.close()
 		
 def remove_backup_directory(backup_directory):
