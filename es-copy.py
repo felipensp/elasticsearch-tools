@@ -218,12 +218,10 @@ if __name__ == '__main__':
                         type=FileType('r'))
     args = parser.parse_args()
     
+    if args.delete != None:
+		delete_docs(args.input, args.index)
     if args.to == None:
         change_mapping_and_reindex(args.input, args.mapping, args.index)
-    elif args.to != None:
-		copy_index_doc(args.input, args.mapping, args.to, args.index, args.output)
-    elif args.delete != None:
-		delete_docs(args.input, args.index)
     else:
-        print 'Nothing to do'
+		copy_index_doc(args.input, args.mapping, args.to, args.index, args.output)
 		
